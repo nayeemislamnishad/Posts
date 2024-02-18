@@ -4,49 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Display</title>
-
-    <style>
-
-        body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-#text-container {
-    max-width: 800px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: justify;
-}
-
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div id="text-container"></div>
 
     <script>
-        // Use XMLHttpRequest to read the text file
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'text.txt', true);
+        // Function to load content from a specific text file
+        function loadTextFile(filename) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', filename, true);
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Display the text on the webpage
-                document.getElementById('text-container').innerText = xhr.responseText;
-            }
-        };
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('text-container').innerText = xhr.responseText;
+                }
+            };
 
-        xhr.send();
+            xhr.send();
+        }
+
+        // Function to get all text files in the current directory
+        function loadAllTextFiles() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '.', true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var fileNames = xhr.responseText.split('\n');
+                    // Display the content of the first text file by default
+                    loadTextFile(fileNames[0]);
+                    // Optional: Display links to other text files
+                    displayFileLinks(fileNames);
+                }
+            };
+
+            xhr.send();
+        }
+
+        // Function to display links to other text files
+        function displayFileLinks(fileNames) {
+            var linksContainer = document.createElement('div');
+            linksContainer.innerHTML = '<h3>Other Posts:</h3>';
+
+            fileNames.forEach(function (filename) {
+                if (filename.endsWith('.txt') && filename !== 'index.html') {
+                    var link = document.createElement('a');
+                    link.href = '#';
+                    link.innerText = filename;
+                    link.addEventListener('click', function () {
+                        loadTextFile(filename);
+                    });
+                    linksContainer.appendChild(link);
+                }
+            });
+
+            document.body.appendChild(linksContainer);
+        }
+
+        // Load all text files in the current directory
+        loadAllTextFiles();
     </script>
 
 </body>
