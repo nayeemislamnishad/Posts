@@ -33,34 +33,23 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var fileNames = xhr.responseText.split('\n');
-                    // Display the content of the first text file by default
-                    loadTextFile(fileNames[0]);
-                    // Optional: Display links to other text files
-                    displayFileLinks(fileNames);
+                    // Display the content of each text file in order
+                    var currentIndex = 0;
+
+                    function cycleTextFiles() {
+                        loadTextFile(fileNames[currentIndex]);
+                        currentIndex = (currentIndex + 1) % fileNames.length;
+                    }
+
+                    // Initial load
+                    cycleTextFiles();
+
+                    // Set interval to update content every 5 seconds (adjust as needed)
+                    setInterval(cycleTextFiles, 5000);
                 }
             };
 
             xhr.send();
-        }
-
-        // Function to display links to other text files
-        function displayFileLinks(fileNames) {
-            var linksContainer = document.createElement('div');
-            linksContainer.innerHTML = '<h3>Other Posts:</h3>';
-
-            fileNames.forEach(function (filename) {
-                if (filename.endsWith('.txt') && filename !== 'index.html') {
-                    var link = document.createElement('a');
-                    link.href = '#';
-                    link.innerText = filename;
-                    link.addEventListener('click', function () {
-                        loadTextFile(filename);
-                    });
-                    linksContainer.appendChild(link);
-                }
-            });
-
-            document.body.appendChild(linksContainer);
         }
 
         // Load all text files in the current directory
