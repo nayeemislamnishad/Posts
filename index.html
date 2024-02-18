@@ -55,8 +55,9 @@
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         var postContainer = document.createElement('div');
                         postContainer.className = 'post-container';
-                        postContainer.innerHTML = '<hr>';
-postContainer.innerHTML += xhr.responseText;
+                       postContainer.innerHTML='<hr>' + '<p>' + xhr.responseText + '</p>';
+
+
 
                 
 
