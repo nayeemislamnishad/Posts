@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to fetch and display posts
     function displayPosts() {
-        // Assuming text files are named as post1.txt, post2.txt, etc.
-        for (let i = 1; i <= 5; i++) {  // Adjust the range based on your needs
+        for (let i = 1; i <= 2; i++) {  // Assuming you have post1.txt and post2.txt
             fetch(`posts/post${i}.txt`)
                 .then(response => response.text())
                 .then(content => {
