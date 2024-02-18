@@ -52,19 +52,25 @@
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', filename + '.txt', true);
 
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        var postContainer = document.createElement('div');
-                        postContainer.className = 'post-container';
-                       postContainer.innerHTML='<hr>' + '<p>' + xhr.responseText + '</p>';
 
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var postContainer = document.createElement('div');
+        postContainer.className = 'post-container';
 
+        var hrElement = document.createElement('hr');
+        postContainer.appendChild(hrElement);
+
+        var textElement = document.createElement('p');
+        textElement.innerText = xhr.responseText;
+        postContainer.appendChild(textElement);
+
+        postsContainer.appendChild(postContainer);
+    }
+};
 
                 
-
-                        postsContainer.appendChild(postContainer);
-                    }
-                };
+                
 
                 xhr.send();
             });
