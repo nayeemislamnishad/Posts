@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Display</title>
+    <title>Multiple Posts Display</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -11,13 +11,13 @@
             margin: 0;
             padding: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
         }
 
-        #text-container {
-            max-width: 800px;
+        .post-container {
+            max-width: 400px;
+            margin: 20px;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -28,25 +28,32 @@
 </head>
 <body>
 
-    <div id="text-container"></div>
+    <div id="posts-container"></div>
 
     <script>
-        function loadTextFile(filename) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', filename + '.txt', true);
+        function loadTextFiles(filenames) {
+            var postsContainer = document.getElementById('posts-container');
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById('text-container').innerText = xhr.responseText;
-                }
-            };
+            filenames.forEach(function(filename) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', filename + '.txt', true);
 
-            xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var postContainer = document.createElement('div');
+                        postContainer.className = 'post-container';
+                        postContainer.innerText = xhr.responseText;
+
+                        postsContainer.appendChild(postContainer);
+                    }
+                };
+
+                xhr.send();
+            });
         }
 
-        // Example: Load text from post1.txt
-        loadTextFile('post1');
-        loadTextFile('post2');
+        // Example: Load text from post1.txt, post2.txt, and post3.txt
+        loadTextFiles(['post1', 'post2', 'post3']);
     </script>
 
 </body>
