@@ -44,41 +44,34 @@
     <div id="posts-container"></div>
 
     <script>
-    function loadTextFile(filename) {
-        return new Promise((resolve, reject) => {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', filename + '.txt', true);
+        function loadTextFiles(filenames) {
+            var postsContainer = document.getElementById('posts-container');
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    resolve(xhr.responseText);
-                }
-            };
+            filenames.forEach(function(filename) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', filename + '.txt', true);
 
-            xhr.send();
-        });
-    }
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var postContainer = document.createElement('div');
+                        postContainer.className = 'post-container';
+                        postContainer.innerHTML = '<hr>';
+postContainer.innerHTML += xhr.responseText;
 
-    function loadTextFiles(filenames) {
-        var postsContainer = document.getElementById('posts-container');
+                
 
-        Promise.all(filenames.map(loadTextFile))
-            .then((responses) => {
-                responses.forEach((text) => {
-                    var postContainer = document.createElement('div');
-                    postContainer.className = 'post-container';
-                    postContainer.innerHTML = '<hr>' + text;
-                    postsContainer.appendChild(postContainer);
-                });
-            })
-            .catch((error) => {
-                console.error('Error loading text files:', error);
+                        postsContainer.appendChild(postContainer);
+                    }
+                };
+
+                xhr.send();
             });
-    }
+        }
 
-    // Example: Load text from post1.txt, post2.txt, and post3.txt
-    loadTextFiles(['post1', 'post2', 'post3']);
-</script>
+        // Example: Load text from post1.txt, post2.txt, and post3.txt
+        loadTextFiles(['post1', 'post2', 'post3']);
+    </script>
+
 
 
 </body>
