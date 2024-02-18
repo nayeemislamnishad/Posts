@@ -1,60 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Display</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<script>
+    // Function to load content from a specific text file
+    function loadTextFile(filename) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', filename, true);
 
-    <div id="text-container"></div>
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('text-container').innerText = xhr.responseText;
+            }
+        };
 
-    <script>
-        // Function to load content from a specific text file
-        function loadTextFile(filename) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', filename, true);
+        xhr.send();
+    }
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById('text-container').innerText = xhr.responseText;
+    // Function to get all text files in the current directory
+    function loadAllTextFiles() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '.', true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var fileNames = xhr.responseText.split('\n');
+                // Display the content of each text file in order
+                var currentIndex = 0;
+
+                function cycleTextFiles() {
+                    loadTextFile(fileNames[currentIndex]);
+                    currentIndex = (currentIndex + 1) % fileNames.length;
                 }
-            };
 
-            xhr.send();
-        }
+                // Initial load
+                cycleTextFiles();
 
-        // Function to get all text files in the current directory
-        function loadAllTextFiles() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '.', true);
+                // Set interval to update content every 5 seconds (adjust as needed)
+                setInterval(cycleTextFiles, 5000);
+            }
+        };
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var fileNames = xhr.responseText.split('\n');
-                    // Display the content of each text file in order
-                    var currentIndex = 0;
+        xhr.send();
+    }
 
-                    function cycleTextFiles() {
-                        loadTextFile(fileNames[currentIndex]);
-                        currentIndex = (currentIndex + 1) % fileNames.length;
-                    }
-
-                    // Initial load
-                    cycleTextFiles();
-
-                    // Set interval to update content every 5 seconds (adjust as needed)
-                    setInterval(cycleTextFiles, 5000);
-                }
-            };
-
-            xhr.send();
-        }
-
-        // Load all text files in the current directory
-        loadAllTextFiles();
-    </script>
-
-</body>
-</html>
+    // Load all text files in the current directory
+    loadAllTextFiles();
+</script>
