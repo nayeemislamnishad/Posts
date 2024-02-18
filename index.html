@@ -1,4 +1,75 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Posts Display</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .post-container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: justify;
+        }
+
+        .post-container hr {
+            border: 2px solid #001f3f;
+            background-color: #001f3f;
+            width: 50%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+
+    <div id="posts-container"></div>
+
+    <script>
+        function loadTextFiles(filenames) {
+            var postsContainer = document.getElementById('posts-container');
+
+            filenames.forEach(function(filename) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', filename + '.txt', true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var postContainer = document.createElement('div');
+                        postContainer.className = 'post-container';
+                        postContainer.innerHTML = '<hr>' + xhr.responseText;
+
+                        postsContainer.appendChild(postContainer);
+                    }
+                };
+
+                xhr.send();
+            });
+        }
+
+        // Example: Load text from post1.txt, post2.txt, and post3.txt
+        loadTextFiles(['post1', 'post2', 'post3']);
+    </script>
+
+</body>
+</html>
 
 
 
@@ -7,7 +78,7 @@
 
 
 
-
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,4 +144,4 @@
 
 
 
-
+-->
