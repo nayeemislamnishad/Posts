@@ -82,7 +82,9 @@ xhr.onreadystatechange = function () {
         var postContainer = document.createElement('div');
         postContainer.className = 'post-container';
 
-        var hrElement = document.createElement('hr');
+        //var hrElement = document.createElement('hr'); 
+        var hrElement = document.createElement('h1');
+        hrElement.innerText='Do you know me';
         postContainer.appendChild(hrElement);
 
         var textElement = document.createElement('p');
