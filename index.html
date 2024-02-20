@@ -74,6 +74,8 @@
     </div>
 
     <script>
+
+    /*
         function loadTextFiles(filenames) {
             var postsContainer = document.getElementById('posts-container');
 
@@ -109,6 +111,59 @@ xhr.onreadystatechange = function () {
 
         // Example: Load text from post1.txt, post2.txt, and post3.txt
         loadTextFiles(['post1', 'post2', 'post3','post4','post5', 'post6','post7','post8', 'post9','post10']);
+   
+    */
+
+
+        function loadTextFiles() {
+    var postsContainer = document.getElementById('posts-container');
+
+    var postInfo = [
+        { filename: 'post1', images: ['image1.jpg'] },
+        { filename: 'post2', images: ['image2sub1.jpg', 'image2sub2.jpg'] },
+        { filename: 'post3', images: ['image3.jpg'] },
+        { filename: 'post4' }, // No images for post4
+        // Add more posts with their respective images or without images
+    ];
+
+    postInfo.forEach(function (post) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', post.filename + '.txt', true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var postContainer = document.createElement('div');
+                postContainer.className = 'post-container';
+
+                var hrElement = document.createElement('h1');
+                hrElement.innerText = 'POST###';
+                postContainer.appendChild(hrElement);
+
+                var textElement = document.createElement('p');
+                textElement.innerText = xhr.responseText;
+                postContainer.appendChild(textElement);
+
+                // Check if there are images for the current post
+                if (post.images && post.images.length > 0) {
+                    post.images.forEach(function (imageFilename) {
+                        var imageElement = document.createElement('img');
+                        imageElement.src = 'path/to/your/images/' + imageFilename; // Adjust the path accordingly
+                        imageElement.alt = 'Description of your image';
+                        postContainer.appendChild(imageElement);
+                    });
+                }
+
+                postsContainer.appendChild(postContainer);
+            }
+        };
+
+        xhr.send();
+    });
+}
+
+loadTextFiles();
+        
+    
     </script>
 
 
