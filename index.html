@@ -154,7 +154,7 @@ xhr.onreadystatechange = function () {
                 if (post.images && post.images.length > 0) {
                     post.images.forEach(function (imageFilename) {
                         var imageElement = document.createElement('img');
-                        imageElement.src = 'path/to/your/images/' + imageFilename; // Adjust the path accordingly
+                        imageElement.src = 'IMAGES/' + imageFilename; // Adjust the path accordingly
                         imageElement.alt = 'Description of your image';
                         postContainer.appendChild(imageElement);
                     });
