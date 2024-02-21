@@ -111,9 +111,9 @@
 
                 // Check if there are images for the current post
                 if (post.images && post.images.length > 0) {
-                    alert('Loading images for post: ' + post.filename);
+                
                     post.images.forEach(function (imageFilename) {
-                        alert('Loading image: ' + imageFilename);
+                    
                         var imageElement = document.createElement('img');
                         imageElement.src = 'IMAGES/' + imageFilename; // Adjust the path accordingly
                         imageElement.alt = 'Description of your image';
