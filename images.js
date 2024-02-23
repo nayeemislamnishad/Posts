@@ -6,7 +6,7 @@ var postInfo = [
     { filename: 'post4' }, // No images for post4
    { filename: 'post5' },
    { filename: 'post6' ,images:['image6.jpg']},
-
+    { filename: 'post7' },
 
 
    
