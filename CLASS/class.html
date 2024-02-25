@@ -44,6 +44,250 @@
             padding: 1em;
         }
 
+
+    
+
+
+       
+       
+       #videos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding:0px;
+    padding-right: 25px;
+    margin-top: 60px;
+    margin-right: 10px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    background-color: #393E46;
+    color: white;
+}
+
+.container {
+    margin-bottom: 20px; /* Add space between video containers */
+}
+
+iframe {
+    margin: 10px;
+    width: 100%; /* Make the iframe responsive */
+    height: 200px;
+    border: 4px solid #6AFB92;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (min-width: 600px) {
+    iframe {
+        height: 315px; /* Adjust the height for larger screens */
+    }
+}
+
+a {
+    display: inline-block; /* Keep the link inline with the text */
+    margin-top: 10px; /* Add space between iframe and link */
+    padding: 8px 15px; /* Adjust padding for better aesthetics */
+    text-decoration: none;
+    color: #6AFB92;
+    border-radius: 6px;
+    border: 2px solid #6AFB92; /* Add a border to the link */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+a:hover {
+    background-color: #6AFB92;
+    color: black;
+}
+
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .menu-item {
+            text-decoration: none;
+            background-color:red;
+            color: #6AFB92;
+            color: black;
+            border-radius:6%;
+            border: none;
+            padding:2px 5px;
+            margin: 0 6px;
+            font-weight: bold;
+            font-size: 0.85em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .menu-item:hover {
+            color: #FFC300; /* Change the color on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="head_design" style="margin:0px;">
+        <h1 style="padding:0px;margin:0px;">The Website</h1>
+        <p style="color:#6AFB92; padding:1px 1px;margin:0px;font-size:small;font-style:italic;">𝕎𝕙𝕖𝕣𝕖 𝕥𝕙𝕖 𝕥𝕣𝕦𝕥𝕙 𝕚𝕤 𝕥𝕠𝕝𝕕</p>
+        <nav class="menu">
+            <a href="../index.html" class="menu-item">Home</a>
+            <a href="../WATCH/watch.html" class="menu-item">Watch</a>
+            <a href="../TIMELINE/timeline.html" class="menu-item">Timeline</a>
+            <a href="../CLASS/class.html" class="menu-item">Class</a>
+        </nav>
+    </div>
+
+    <div id="videos-container"></div>
+
+    <script>
+        // Your JavaScript array containing YouTube video IDs
+        const videoIds = [
+            "752Ziu39zTE",
+            "P-4zG8uTuHs",
+            "XbNQhiLmJTc",
+            "FlCTifxUl1s",
+            "jvk9v806gzY",
+            "-UdfM1xxXJk",
+            "umEaa_6rZGo",
+            "c3CAPHfOZDY",
+            "V-oqPysfoiw",
+            "ALn_ch0aqB0",
+          
+            
+            // Add more video IDs as needed
+        ];
+
+        // Function to create iframe for each video ID
+        // Function to create iframe for each video ID
+function createVideoIframe(videoId) {
+  const container = document.createElement("div");
+    const iframe = document.createElement("iframe");
+ iframe.width = "560";
+    iframe.height = "315";
+    iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    iframe.frameborder = "0";
+    iframe.allowfullscreen = true;
+     // Add the sandbox attribute to block links
+    // Allow JavaScript while still blocking links
+    iframe.sandbox = 'allow-same-origin allow-scripts allow-popups';
+    
+    
+    iframe.title = ''; // Remove the default YouTube title
+    // Create link for each video
+    const videoLink = document.createElement("a");
+    videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+    videoLink.target = "_blank"; // Open in a new tab
+    videoLink.innerText = "Watch on YouTube"; // You can customize the text
+
+    // Append iframe and link to the container
+    container.appendChild(iframe);
+    container.appendChild(videoLink);
+
+    return container;
+}
+
+
+        // Get the container element
+        const videoContainer = document.getElementById("videos-container");
+
+        // Loop through the video IDs and append iframes to the container
+        videoIds.forEach(videoId => {
+            const videoIframe = createVideoIframe(videoId);
+            videoContainer.appendChild(videoIframe);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+<!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vediolink.js"></script>
+    
+    <title>YouTube Videos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin:100px 0px 0px 0px;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            background-color: #042545;
+        }
+        .head_design {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin:0px 0px 40px 0px;
+            background-color:#161928;
+            color:white;
+            padding:4px 0;
+            text-align: center;
+            font-family: 'Lato', 'Arial', sans-serif;
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        } 
+        
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
         #videos-container {
             display: flex;
             flex-wrap: wrap;
@@ -150,3 +394,4 @@
 </html>
 
   
+-->
