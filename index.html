@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Website</title>
+    
+    
+    <style>
+      
+      .head_design {
+           
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .head_design h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .head_design i {
+            margin-right: 10px;
+        }
+    </style>
+    
+    
+</head>
+<body>
+  
+  
+  <div class="head_design">
+    
+    <div>
+            <i class="fas fa-user headicons"></i>
+        </div>
+        <h1>Matri</h1>
+        <div>
+            <i class="fas fa-bell headicons"></i>
+        </div>
+    </div>
+    
+    
+        
+    <p style="color:#416D19; padding:1px 1px;margin:0px;font-size:small;font-style:italic;">All Bd Rank: 20th</p>
+</div>
+
+
+
+
+
+    <div class="container">
+        <div class="sidebar">
+            <!-- Your 15 menus with icons go here -->
+            <ul>
+                <li><i class="fas fa-home"></i></li>
+              <li><i class="fas fa-rotate"></i></li>
+              <li><i class="fas fa-podcast"></i></li>
+                <li><i class="fas fa-envelope"></i></li>
+                <li><i class="fas fa-bell"></i></li>
+                <li><i class="fa-solid fa-font-awesome sizemenu"></i></li>
+                
+                <li><i class="fas fa-cogs"></i></li>
+                <li><i class="fas fa-search"></i></li>
+                <li><i class="fas fa-book"></i></li>
+                
+                <li><i class="fas fa-film"></i></li>
+                <li><i class="fas fa-music"></i></li>
+                <li><i class="fas fa-gamepad"></i></li>
+                <li><i class="fas fa-pencil-alt"></i></li>
+                <li><i class="fas fa-calendar"></i></li>
+                <li><i class="fas fa-question-circle"></i></li>
+                <li><i class="fas fa-sign-out-alt"></i></li>
+            </ul>
+        </div>
+        <div class="main-content" id="posts-container">
+          
+          
+
+           
+    </div>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+        
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var postsContainer = document.getElementById('posts-container');
+
+            // Define the postInfo array with filenames
+            var postInfo = [
+                { filename: 'post1' },
+                { filename: 'post2' },
+                // Add more post information as needed
+            ];
+
+            function loadTextFiles() {
+                postInfo.forEach(function (post) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', post.filename + '.txt', true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var postContainer = document.createElement('div');
+                            postContainer.className = 'post-container';
+
+                            var hrElement = document.createElement('h1');
+                            hrElement.innerText = 'POST###';
+                            postContainer.appendChild(hrElement);
+
+                            var textElement = document.createElement('p');
+                            textElement.className = 'text-container'; // Add the text-container class
+                            textElement.innerText = xhr.responseText;
+                            postContainer.appendChild(textElement);
+
+                            postsContainer.appendChild(postContainer);
+                        }
+                    };
+
+                    xhr.send();
+                });
+            }
+
+            // Call the loadTextFiles function after the DOM is loaded
+            loadTextFiles();
+        });
+    </script>
+
+
+    
+    
+    
+    
+    
+
+
+</body>
+</html>
