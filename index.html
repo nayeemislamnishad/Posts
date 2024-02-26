@@ -108,46 +108,50 @@
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var postsContainer = document.getElementById('posts-container');
+     function loadTextFiles() {
+    var postsContainer = document.getElementById('posts-container');
 
-            // Define the postInfo array with filenames
-            var postInfo = [
-                { filename: 'post1' },
-                { filename: 'post2' },
-                // Add more post information as needed
-            ];
+            
 
-            function loadTextFiles() {
-                postInfo.forEach(function (post) {
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', post.filename + '.txt', true);
+    postInfo.forEach(function (post) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', post.filename + '.txt', true);
 
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            var postContainer = document.createElement('div');
-                            postContainer.className = 'post-container';
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+            
+                var postContainer = document.createElement('div');
+                postContainer.className = 'post-container';
 
-                            var hrElement = document.createElement('h1');
-                            hrElement.innerText = 'POST###';
-                            postContainer.appendChild(hrElement);
+                var hrElement = document.createElement('h1');
+                hrElement.innerText = 'POST###';
+                postContainer.appendChild(hrElement);
 
-                            var textElement = document.createElement('p');
-                            textElement.className = 'text-container'; // Add the text-container class
-                            textElement.innerText = xhr.responseText;
-                            postContainer.appendChild(textElement);
+                var textElement = document.createElement('p');
+                textElement.innerText = xhr.responseText;
+                postContainer.appendChild(textElement);
 
-                            postsContainer.appendChild(postContainer);
-                        }
-                    };
+                // Check if there are images for the current post
+                if (post.images && post.images.length > 0) {
+                
+                    post.images.forEach(function (imageFilename) {
+                    
+                        var imageElement = document.createElement('img');
+                        imageElement.src = 'IMAGES/' + imageFilename; // Adjust the path accordingly
+                        imageElement.alt = 'Description of your image';
+                        postContainer.appendChild(imageElement);
+                    });
+                }
 
-                    xhr.send();
-                });
+                postsContainer.appendChild(postContainer);
             }
+        };
 
-            // Call the loadTextFiles function after the DOM is loaded
-            loadTextFiles();
-        });
+        xhr.send();
+    });
+}
+
+loadTextFiles();
     </script>
 
 
