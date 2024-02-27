@@ -146,6 +146,7 @@ li:hover{
     max-width: 600px;
     margin: 0 auto;
     margin-bottom: 20px;
+            margin-top:20px;
   }
 .post-container img {
     max-width: 100%;
