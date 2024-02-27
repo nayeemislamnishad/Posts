@@ -136,7 +136,9 @@ li:hover{
       padding-right:10px;
           padding-left: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         border: 2px solid rgba(108, 108, 108, 0.1);
+         border: 4px solid;
+         border-color: rgba(65, 109, 25, 0.05);
+         
      color:black;
     border-radius: 8px;
     margin-bottom: 20px;
