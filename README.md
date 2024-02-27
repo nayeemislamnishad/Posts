@@ -39,3 +39,10 @@ if (element && element.hasAttribute('data-youtube-video')) {
 
 
 get the id and paste it in the class.html file.
+
+
+------------------
+-------------------
+
+
+# ../interface/text_and_image_controller.js
