@@ -9,3 +9,9 @@ and location:
 text_and_image_controller.js 
 
       <script src="../interface/text_and_image_controller.js"></script>      
+
+
+--------------------------------
+For text and image contrilling:
+
+      <script src="../interface/text_and_image_controller.js"></script>
