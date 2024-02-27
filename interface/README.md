@@ -29,6 +29,6 @@
 ----------------------------
 
 
-# For every page common design:
+# For posts and photoa common design:add this to head
 
     <link rel="stylesheet" href="../interface/styles.css"> 
