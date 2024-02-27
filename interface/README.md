@@ -6,9 +6,9 @@ and location:
        <link rel="stylesheet" href="../interface/vedios_design.css"> 
 
 -----------------------------------
-text_and_image_controller.js 
+For YouTube vedios controlling:
 
-      <script src="../interface/text_and_image_controller.js"></script>      
+      <script src="../interface/youtube_vedios_controller.js"></script>      
 
 
 --------------------------------
