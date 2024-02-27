@@ -15,3 +15,8 @@ For YouTube vedios controlling:
 For text and image contrilling:
 
       <script src="../interface/text_and_image_controller.js"></script>
+
+
+Foe every page common design:
+
+    <link rel="stylesheet" href="../interface/styles.css"> 
