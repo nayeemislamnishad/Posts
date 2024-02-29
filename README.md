@@ -20,22 +20,31 @@
 if you wnat to get the YouTube vedio link of udvas .the  open yhe webpage and go to console amd paste this code ...........
 
 
-<code>
- 
-// Get the HTML element
-var element = document.querySelector('[data-youtube-video]');
 
-// Check if the element exists and has the attribute
-if (element && element.hasAttribute('data-youtube-video')) {
-    // Get the value of the data-youtube-video attribute
+
+     <script>
+ 
+
+ 
+                                  // Get the HTML element
+
+           
+      var element = document.querySelector('[data-youtube-video]');
+    if (element && element.hasAttribute('data-youtube-video')) {
     var videoId = element.getAttribute('data-youtube-video');
     console.log(videoId);
-} else {
+     } else {
     console.log('Element or attribute not found.');
-}
+     }
+     
+     
+     </script>
 
 
-</code>
+
+
+
+
 
 
 get the id and paste it in the class.html file.
