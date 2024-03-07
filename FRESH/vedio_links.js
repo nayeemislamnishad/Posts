@@ -1,9 +1,7 @@
 const videoIds = [
 
         "XbdaG94VavY",
-        "XhO_3B8xBKQ",
-        "5hNNbHCrTPI",
-        "752Ziu39zTE",
+        "gTCIcPpydgU",
         
         
         // Add more video links as needed
