@@ -68,6 +68,7 @@ body{
     margin-left: 15%; 
 background:white;
 color:black;
+  display:flex;
 }
 .post {
      padding:5px;
