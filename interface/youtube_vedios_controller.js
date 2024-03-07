@@ -8,8 +8,10 @@ function createVideoIframe(videoId) {
     const iframe = document.createElement("iframe");
     iframe.width = "560";
     iframe.height = "315";
-    iframe.src = `https://www.youtube.com/embed/${videoId}`;
-    iframe.frameborder = "0";
+  //  iframe.src = `https://www.youtube.com/embed/${videoId}`;
+  iframe.src = `https://www.youtube.com/embed/${videoId}?showinfo=0`;
+        
+        iframe.frameborder = "0";
     iframe.allowfullscreen = true;
     iframe.sandbox = 'allow-same-origin allow-scripts allow-popups';
     iframe.title = ''; // Remove the default YouTube title
