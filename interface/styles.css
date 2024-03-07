@@ -61,7 +61,7 @@ body{
     
 }
 .main-content {
-   width:85%;
+   max-width:85%;
     padding:0px;
     margin:0px;
     margin-right: 5px;
