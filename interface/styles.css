@@ -61,14 +61,14 @@ body{
     
 }
 .main-content {
-   max-width:85%;
+   width:85%;
     padding:0px;
     margin:0px;
     margin-right: 5px;
     margin-left: 15%; 
 background:white;
 color:black;
-  display:flex;
+
 }
 .post {
      padding:5px;
