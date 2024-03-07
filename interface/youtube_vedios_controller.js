@@ -1,3 +1,29 @@
+// Your JavaScript array containing YouTube video IDs
+//const videoIds = ['videoId1', 'videoId2', 'videoId3']; // Add your video IDs
+
+// Function to create iframe for each video ID
+function createVideoIframe(videoId) {
+    return `
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups" title=""></iframe>
+            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="watch-on-youtube-link">Watch on YouTube</a>
+        </div>
+    `;
+}
+
+// Get the container element
+const videoContainer = document.getElementById("videos-container");
+
+// Use innerHTML for better performance
+videoContainer.innerHTML = videoIds.map(createVideoIframe).join('');
+
+
+
+
+
+
+
+/*
 
 // Your JavaScript array containing YouTube video IDs
         
@@ -41,3 +67,8 @@ function createVideoIframe(videoId) {
             const videoIframe = createVideoIframe(videoId);
             videoContainer.appendChild(videoIframe);
         });
+
+
+
+        */
+
