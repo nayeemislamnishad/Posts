@@ -25,7 +25,7 @@ function addUserIconAndName(userData, postContainer) {
 // Example user data
 const userData = {
     username: "Linkloop",
-    iconSrc: "LinkLoop.jpeg", // Replace with the actual path
+    iconSrc: "../interface/LinkLoop.jpeg", // Replace with the actual path
 };
 
 // Call this function for each postContainer you want to add user icon and name
