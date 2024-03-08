@@ -48,7 +48,7 @@ addUserIconAndName(userData, postContainer);
                         var src = line.trim();
                         var imageElement = document.createElement('img');
 
-                        imageElement.src ='../IMAGES/'+ src;
+                        imageElement.src ='IMAGES/'+ src;
                         imageElement.alt = 'Description of your image';
                         imageElement.style.width = '100%';
                         imageElement.style.height = '200px';
