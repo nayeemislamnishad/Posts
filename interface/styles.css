@@ -7,17 +7,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 .present{
   background:#416D19;
   color: white;
@@ -207,5 +196,35 @@ a:hover{
   color:white;
   background:#416D19 ;
   
+ }
+
+
+
+/* Add this to your existing styles or create a new style block */
+.user-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 40px; /* Adjust the width of the user icon as needed */
+    height: 40px; /* Adjust the height of the user icon as needed */
+    border-radius: 40%; /* Make the user icon circular */
+    margin-right: 10px; /* Adjust the margin as needed */
+    object-fit: cover;;
+}
+
+.user-name {
+    font-weight: bold; /* Optionally make the username bold */
+    
+}
+
+button{
+  border:0px;
+  font-size:15px;
+  font-weight: bold;
+  font-style: italic;
+  background: white;
+  margin-bottom: 10px;
  
-                                  }
+}
