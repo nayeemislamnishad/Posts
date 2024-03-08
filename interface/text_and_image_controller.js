@@ -1,4 +1,6 @@
-// images.js
+
+
+/*
 function loadTextFiles() {
     var postsContainer = document.getElementById('posts-container');
 
@@ -11,27 +13,78 @@ function loadTextFiles() {
                 var postContainer = document.createElement('div');
                 postContainer.className = 'post-container';
 
-                var hrElement = document.createElement('h1');
-                hrElement.innerText = 'Posts........';
-                postContainer.appendChild(hrElement);
+                var lines = xhr.responseText.split('\n');
+                var postDate = new Date(lines[0]);
 
+                addUserIconAndName(userData, postContainer, postDate);
+
+                var postContent = "";
+                var showFullText = false;
                 var textElement = document.createElement('p');
-                textElement.innerHTML = xhr.responseText; // Use innerHTML to render HTML content
+
+                lines.forEach(function (line) {
+                    if (line.trim().toLowerCase().endsWith('.jpeg')) {
+                        var src = line.trim();
+                        var imageElement = document.createElement('img');
+
+                        imageElement.src = src;
+                        imageElement.alt = 'Description of your image';
+                        imageElement.style.width = '100%';
+                        imageElement.style.height = '200px';
+                        imageElement.style.objectFit = 'cover';
+                        imageElement.style.display = showFullText ? 'inline' : 'none';
+
+                        imageElement.onclick = function () {
+                            showFullText = !showFullText;
+                            textElement.innerHTML = showFullText ? postContent : postContent.substring(0, 50);
+                            toggleContentVisibility();
+                        };
+                        postContainer.appendChild(imageElement);
+                    } else {
+                        postContent += line + '<br>';
+                    }
+                });
+
+                textElement.innerHTML = postContent.substring(0, 50);
+                textElement.onclick = function () {
+                    showFullText = !showFullText;
+                    textElement.innerHTML = showFullText ? postContent : postContent.substring(0, 50);
+                    toggleContentVisibility();
+                };
                 postContainer.appendChild(textElement);
 
-                // Extract and append images from the text content
-                var textImages = xhr.responseText.match(/src\s*=\s*['"]([^'"]+)['"]/g);
-                if (textImages) {
-                    textImages.forEach(function (match) {
-                        var src = match.match(/src\s*=\s*['"]([^'"]+)['"]/)[1];
-                        var imageElement = document.createElement('img');
-                        imageElement.src = 'IMAGES/' + src; // Adjust the path accordingly
-                        imageElement.alt = 'Description of your image';
-                        postContainer.appendChild(imageElement);
-                    });
-                }
+                var seeMoreButton = createButton('See More', 'inline', function () {
+                    showFullText = true;
+                    textElement.innerHTML = postContent;
+                    toggleContentVisibility();
+                });
+                postContainer.appendChild(seeMoreButton);
+
+                var seeLessButton = createButton('See Less', 'none', function () {
+                    showFullText = false;
+                    textElement.innerHTML = postContent.substring(0, 50);
+                    toggleContentVisibility();
+                });
+                postContainer.appendChild(seeLessButton);
 
                 postsContainer.appendChild(postContainer);
+
+                function toggleContentVisibility() {
+                    var displayStyle = showFullText ? 'inline' : 'none';
+                    postContainer.querySelectorAll('img').forEach(function (img) {
+                        img.style.display = displayStyle;
+                    });
+                    seeMoreButton.style.display = showFullText ? 'none' : 'inline';
+                    seeLessButton.style.display = showFullText ? 'inline' : 'none';
+                }
+
+                function createButton(text, display, clickHandler) {
+                    var button = document.createElement('button');
+                    button.innerText = text;
+                    button.style.display = display;
+                    button.onclick = clickHandler;
+                    return button;
+                }
             }
         };
 
@@ -41,39 +94,179 @@ function loadTextFiles() {
 
 loadTextFiles();
 
-
-
-/*
-
-
-xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-        var postContainer = document.createElement('div');
-        postContainer.className = 'post-container';
-
-        var hrElement = document.createElement('h1');
-        hrElement.innerText = 'Posts........';
-        postContainer.appendChild(hrElement);
-
-        var textElement = document.createElement('p');
-        textElement.innerHTML = xhr.responseText; // Use innerHTML to render HTML content
-        postContainer.appendChild(textElement);
-
-        // Extract and append images from the text content
-        var textImages = xhr.responseText.match(/src\s*=\s*['"]([^'"]+)['"]/g);
-        if (textImages) {
-            textImages.forEach(function (match) {
-                var src = match.match(/src\s*=\s*['"]([^'"]+)['"]/)[1];
-                var imageElement = document.createElement('img');
-                imageElement.src = 'IMAGES/' + src; // Adjust the path accordingly
-                imageElement.alt = 'Description of your image';
-                postContainer.appendChild(imageElement);
-            });
-        }
-
-        postsContainer.appendChild(postContainer);
-    }
-};
-
-
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function loadTextFiles() {
+    var postsContainer = document.getElementById('posts-container');
+
+    postInfo.forEach(function (post) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', post.filename + '.txt', true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var postContainer = document.createElement('div');
+                postContainer.className = 'post-container';
+
+// Extract date from the first line of the text file
+             
+
+                // Call the function to add user icon and name
+                addUserIconAndName(userData, postContainer);
+                
+// Inside your existing code where you create a postContainer
+var postContainer = document.createElement('div');
+postContainer.className = 'post-container';
+
+// Call the function to add user icon and name
+addUserIconAndName(userData, postContainer);
+
+// Continue with the rest of your existing code for post content
+// ...
+
+
+
+            //    var hrElement = document.createElement('h1');
+            //    hrElement.innerText = 'Posts........';
+             //  postContainer.appendChild(hrElement);
+
+                // Split text content by lines
+                var lines = xhr.responseText.split('\n');
+
+                var postContent = "";
+                var showFullText = false;
+
+                // Declare textElement here
+                var textElement = document.createElement('p');
+
+                lines.forEach(function (line) {
+                    // Check for lines containing image filenames
+                    if (line.trim().toLowerCase().endsWith('.jpeg')) {
+                        var src = line.trim();
+                        var imageElement = document.createElement('img');
+
+                        imageElement.src ='../IMAGES/'+ src;
+                        imageElement.alt = 'Description of your image';
+                        imageElement.style.width = '100%';
+                        imageElement.style.height = '200px';
+                        imageElement.style.objectFit = 'cover';
+                        imageElement.style.display = showFullText ? 'inline' : 'none';
+
+                        imageElement.onclick = function () {
+                            showFullText = !showFullText;
+                            textElement.innerHTML = showFullText ? postContent : postContent.substring(0, 100);
+                            toggleContentVisibility();
+                        };
+                        postContainer.appendChild(imageElement);
+                    } else {
+                        postContent += line + '<br>';
+                    }
+                });
+
+                // Display the first 50 characters of the text initially
+                textElement.innerHTML = postContent.substring(0, 100);
+                textElement.onclick = function () {
+                    showFullText = !showFullText;
+                    textElement.innerHTML = showFullText ? postContent : postContent.substring(0, 100);
+                    toggleContentVisibility();
+                };
+                postContainer.appendChild(textElement);
+
+                // Add "See More" and "See Less" buttons for text
+                var seeMoreButton = createButton('see more...', 'inline', function () {
+                    showFullText = true;
+                    textElement.innerHTML = postContent;
+                    toggleContentVisibility();
+                });
+                postContainer.appendChild(seeMoreButton);
+
+                var seeLessButton = createButton('see less...', 'none', function () {
+                    showFullText = false;
+                    textElement.innerHTML = postContent.substring(0, 100);
+                    toggleContentVisibility();
+                });
+                postContainer.appendChild(seeLessButton);
+
+                postsContainer.appendChild(postContainer);
+
+                function toggleContentVisibility() {
+    var imageDisplayStyle = showFullText ? 'inline' : 'none';
+    postContainer.querySelectorAll('img').forEach(function (img) {
+        img.style.display = imageDisplayStyle;
+    });
+
+    // Add the following lines to handle user icon and name visibility
+    var userIcon = postContainer.querySelector('.user-icon');
+    var userName = postContainer.querySelector('.user-name');
+    userIcon.style.display = 'inline';
+    userName.style.display = 'inline';
+
+    // Update the visibility of buttons based on showFullText state
+    seeMoreButton.style.display = showFullText ? 'none' : 'inline';
+    seeLessButton.style.display = showFullText ? 'inline' : 'none';
+}
+
+
+                function createButton(text, display, clickHandler) {
+                    var button = document.createElement('button');
+                    button.innerText = text;
+                    button.style.display = display;
+                    button.onclick = clickHandler;
+                    return button;
+                }
+                
+              
+            }
+        };
+
+        xhr.send();
+    });
+}
+
+loadTextFiles();
