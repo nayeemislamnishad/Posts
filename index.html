@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   <script src="interface/text_and_image_controller.js"></script>  
-    <script src="interface/user.js"></script>
+   
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&display=swap" rel="stylesheet">
@@ -19,11 +19,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Ojuju:wght@200..800&family=Rammetto+One&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-<script src="vediolink.js"></script>
-
-  <script src="images.js"></script> 
-
 <link rel="stylesheet" href="interface/styles.css">
+  
+
+    
+
+   <!-- Load user.js first -->
+    <script src="interface/user.js" defer></script>
+
+    <!-- Load images.js next -->
+    <script src="images.js" defer></script>
+
+    <!-- Load text_and_image_controller.js after images.js -->
+    <script src="interface/text_and_image_controller.js" defer></script>
+
+    <!-- Load vediolink.js last -->
+    <script src="vediolink.js" defer></script>
+
+
+
+
+
 <title>Your Website</title>
     <style>
       .head_design {
