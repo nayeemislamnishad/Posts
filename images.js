@@ -18,4 +18,5 @@ var postInfo = postInfoo.map(post => {
     return { filename: post.filename, date: formattedDate };
 });
 
+postInfo.sort((a, b) => new Date(a.date) - new Date(b.date));
 console.log(postInfo);
