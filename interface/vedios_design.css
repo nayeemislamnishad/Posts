@@ -17,8 +17,8 @@ iframe {
     margin-top: 10px; /* Adjust the spacing as needed */
     margin-bottom:20px;
     padding: 8px 15px;
-    border:solid 2px #212121;
-    color: #ececec;
+    border:solid 2px #ececec;
+    color: #212121;
     
     text-decoration: none;
     border-radius: 5px;
@@ -32,6 +32,7 @@ iframe {
 
 .watch-on-youtube-link:hover {
     background-color: #212121; /* Adjust the hover color as needed */
+     color:#ececec;
 }
 
 
