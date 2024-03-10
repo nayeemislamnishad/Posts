@@ -8,8 +8,8 @@
 
 
 .present{
-  background:#416D19;
-  color: white;
+  color:#212121;
+  background: #ececec;
   
 }
 
@@ -20,7 +20,7 @@ body, html {
     font-family: Arial, sans-serif;
 }
 body{
-  background-color:white;
+  background:#212121;
 }
 .container {
     display: flex;
@@ -29,8 +29,8 @@ body{
     width:15%; 
     height:90vh;
   
-   background-color: white;
-   color:black;
+   background-color:#212121;
+   color: #ececec;
     position: fixed;
     overflow-y: scroll;
     margin-top: 5px;
@@ -43,9 +43,9 @@ body{
   margin:10px 3px;
     padding:5px 10px;
     cursor: pointer;
-    border:2.5px solid #416D19;
+    border: 2.5px solid rgb(227, 227, 227,0.2);
     border-radius:15px;
-    color: #416D19;
+    color: #ececec;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     
 }
@@ -55,47 +55,36 @@ body{
     margin:0px;
     margin-right: 5px;
     margin-left: 15%; 
-background:white;
-color:black;
+background:#212121;
+color:white;
 
 }
 .post {
      padding:5px;
     margin: 0px;
    margin-bottom: 20px;
-    background:white;
+  
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: justify;
 }
 
 li:hover{
-  color: white;
-  background:#416D19
+  background: white;
+  color:#212121;
+  a{
+    color:#212121;
+  }
  
   }
- .head_design {
-             top: 0;
-            left: 0;
-            width: 100%;
-            margin: 0px 0px 0px 0px;
-            background-color: #161928;
-            color: white;
-            padding: 9px 0;
-            text-align: center;
-            font-family: 'Lato', 'Arial', sans-serif;
-            font-size: 1.2em;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
- }
+
    .head_design {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color:white;
-    color:black;
+   
+    background:#212121;
     padding: 0px 0px;
     
     text-align: center;
@@ -104,30 +93,30 @@ li:hover{
     letter-spacing: 1px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000; 
-   font-family: "Rammetto One", sans-serif;
+  
   font-weight: 200;
-  font-family: "Ojuju", sans-serif;
+ 
        font-family: "Unbounded", sans-serif;
-  color: #416D19;
+  color: #ececec;
   
        font-weight: lighter;
        
        
        
-background: linear-gradient(45deg, #416D19, #356A16);
-  color: #ffffff; /* White text color */
+
+
   padding: 20px; /* Adjust padding as needed for a bolder look */
   border-radius:0px; /* Optional: Add border-radius for rounded corners */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced glassy shadow effect */
 
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
- background:white;     
+   
    
 }
 
 .container {
     margin-top:80px;
-    background-color: white;
+    
 }
 .post-container h1 {
            padding: 5px;
@@ -135,11 +124,11 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             weight:bold;
             margin:0px;
              margin-top:20px;
-            color: #416D19;
+            
           
            
             border-radius: 4px;
-            border: #416D19 solid 2px;
+           
 
 
 
@@ -150,24 +139,21 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         .post-container{
       padding-right:10px;
           padding-left: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         border: 4px solid;
-         border-color: rgba(65, 109, 25, 0.05);
+  
          
-     color:black;
+         
+   
     border-radius: 8px;
     margin-bottom: 20px;
    text-align: justify;
     max-width: 600px;
     margin: 0 auto;
     margin-bottom: 20px;
-            margin-top:20px;
-
-          border: 1px solid rgba(65, 109, 25, .3)
-            ;
+            margin-top:30px;
+margin-left: 5px;
+            border: 1px solid rgb(227, 227, 227,0.2);
+            margin-bottom: 50px;
             
-            box-shadow: 6px rgba(65, 109, 25, 1)
-            ;
   }
 .post-container img {
     max-width: 100%;
@@ -180,21 +166,23 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 .headicons{
   font-size:35px;
   padding:5px 10px;
-  color: #416D19;
+ 
   
 }
 
 
 a{
   
- color: #416D19;
+ color:#ececec;
+
  
   
     }
     
 a:hover{
-  color:white;
-  background:#416D19 ;
+ color:#212121;
+ 
+ 
   
  }
 
@@ -211,7 +199,7 @@ a:hover{
     height: 40px; /* Adjust the height of the user icon as needed */
     border-radius: 40%; /* Make the user icon circular */
     margin-right: 10px; /* Adjust the margin as needed */
-    object-fit: cover;;
+    object-fit: cover;
 }
 
 .user-name {
@@ -224,15 +212,13 @@ button{
   font-size:15px;
   font-weight: bold;
   font-style: italic;
-  background: white;
+   color: #ececec;
+   background-color: #212121;
   margin-bottom: 10px;
  
 }
 
 
-.head_left_right_icons{
-  color:#416D19;
-}
 
 
   .head_design {
