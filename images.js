@@ -1,10 +1,21 @@
-var postInfo = [
-   { filename: 'post1'},
-   { filename: 'post2' },
-   { filename: 'post3'},
-   { filename: 'post4' },
-   { filename: 'post5' },
-   { filename: 'post6' },
-   { filename: 'post7' },
-   // Add more posts without the images property
+
+
+var postInfoo = [
+   { filename: 'post1', date: '04-03-2024' },
+   { filename: 'post2', date: '09-03-2024' },
+   { filename: 'post3', date: '08-03-2024' },
+   { filename: 'post4', date: '07-03-2024' },
+   { filename: 'post5', date: '06-03-2024' },
+   { filename: 'post6', date: '05-03-2024' },
+   { filename: 'post7', date: '10-03-2024' },
+   // Add more posts with their respective dates
 ];
+
+// Clone with the date formatted as year-month-day
+var postInfo = postInfoo.map(post => {
+    const [day, month, year] = post.date.split('-');
+    const formattedDate = `${year}-${month}-${day}`;
+    return { filename: post.filename, date: formattedDate };
+});
+
+console.log(postInfo);
