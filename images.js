@@ -7,6 +7,9 @@ var postInfoo = [
    { filename: 'post6', date: '05-03-2024' },
    { filename: 'post7', date: '10-03-2024' },
    { filename: 'about_eee', date: '12-03-2024' },
+   { filename: 'my_ramadan_routine', date: '12-03-2024' },
+
+  
    // Add more posts with their respective dates
 ];
 
