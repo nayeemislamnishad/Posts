@@ -10,6 +10,7 @@ var postInfoo = [
    { filename: 'my_ramadan_routine', date: '12-03-2024' },
    
  { filename: 'susteee', date: '13-03-2024' },
+   { filename: 'sust_eee_post', date: '16-03-2024' },
 
   
    // Add more posts with their respective dates
