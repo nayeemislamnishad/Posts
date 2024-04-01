@@ -26,16 +26,19 @@ if you wnat to get the YouTube vedio link of udvas .the  open yhe webpage and go
  
 
  
-                                  // Get the HTML element
+                                  var element = document.querySelector('[data-youtube-video]');
 
-           
-      var element = document.querySelector('[data-youtube-video]');
-    if (element && element.hasAttribute('data-youtube-video')) {
-    var videoId = element.getAttribute('data-youtube-video');
-    console.log(videoId);
-     } else {
+      if (element && element.hasAttribute('data-youtube-video')) {
+       var videoId = element.getAttribute('data-youtube-video');
+     var youtubeLink = 'https://www.youtube.com/watch?v=' + videoId;
+    var anchor = document.createElement('a');
+    anchor.href = youtubeLink;
+    anchor.textContent = 'Click here to watch the video';
+    element.appendChild(anchor);
+      } else {
     console.log('Element or attribute not found.');
-     }
+      }
+
      
      
      </script>
@@ -43,6 +46,36 @@ if you wnat to get the YouTube vedio link of udvas .the  open yhe webpage and go
 
 
 
+
+
+
+
+
+--------
+
+
+
+
+
+<script>
+       
+ 
+ 
+ 
+              
+          var element = document.querySelector('[data-youtube-video]');
+if (element && element.hasAttribute('data-youtube-video')) {
+  var videoId = element.getAttribute('data-youtube-video');
+  var youtubeLink = 'https://www.youtube.com/watch?v=' + videoId;
+  var anchor = document.createElement('a');
+  anchor.href = youtubeLink;
+  anchor.textContent = 'Click here to watch the video';
+  element.appendChild(anchor);
+} else {
+  console.log('Element or attribute not found.');
+ }
+ 
+</script>
 
 
 
