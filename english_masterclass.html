@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        li a {
+            display: block;
+            background-color: #fff;
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        li a:hover {
+            background-color: #f0f0f0;
+        }
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Class Videos</h1>
+    </header>
+    <div id="content">
+        <ul>
+           <li><a href="https://www.youtube.com/watch?v=1FJPYOBH4F0">Class 1</a></li>
+        <li><a href="https://www.youtube.com/watch?v=jPPMxF2p1Gk">Class 2</a></li>
+        <li><a href="https://www.youtube.com/watch?v=tPcL_wqRwQw">Class 3 Part 1</a></li>
+        <li><a href="https://www.youtube.com/watch?v=5jZo9euDmTU">Class 3 Part 2</a></li>
+        <li><a href="https://www.youtube.com/watch?v=a-JRQxMzHok">Class 3 Part 3</a></li>
+        <li><a href="https://www.youtube.com/watch?v=GKvdcGBoRMY">Class 4</a></li>
+        <li><a href="https://www.youtube.com/watch?v=HKG4_nwwoT4">Class 5</a></li>
+        <li><a href="https://www.youtube.com/watch?v=QIU0wR0cbQw">Class 6</a></li>
+        <li><a href="https://www.youtube.com/watch?v=1-L3Qaq7Lv0">Class 7</a></li>
+        <li><a href="https://www.youtube.com/watch?v=yqT-h9gyb4M">Class 8</a></li>
+        <li><a href="https://www.youtube.com/watch?v=48HEtLmU_I4">Class 9</a></li>
+        <li><a href="https://www.youtube.com/watch?v=V6rzzkt2EaE">Class 10</a></li>
+        <li><a href="https://www.youtube.com/watch?v=f6jToSuK5ps">Class 11</a></li>
+        <li><a href="https://www.youtube.com/watch?v=GmswTdl3ZME">Class 12</a></li>
+        <li><a href="https://www.youtube.com/watch?v=lr9J5_cKLgE">Class 13</a></li>
+        <li><a href="https://www.youtube.com/watch?v=lpDcvxMgZIw">Class 14</a></li>
+        <li><a href="https://www.youtube.com/watch?v=Lu-ydKdBQ6M">Class 15</a></li>
+        <li><a href="https://www.youtube.com/watch?v=E-IHohFTS-A">Class 16</a></li>
+        <li><a href="https://www.youtube.com/watch?v=DnWYSTiS8pA">Class 17</a></li>
+        <li><a href="https://www.youtube.com/watch?v=uXdjvO1aJ0Y">Class 18</a></li>
+        <li><a href="https://www.youtube.com/watch?v=Nt9H3vJ-urg">Class 19</a></li>
+        <li><a href="https://www.youtube.com/watch?v=1W3sKfhHswI">Class 20</a></li>
+        <li><a href="https://www.youtube.com/watch?v=SQST8fODXk4">Class 21</a></li>
+        <li><a href="https://www.youtube.com/watch?v=yDyHTuqgUcY">Class 22</a></li>
+        <li><a href="https://www.youtube.com/watch?v=yQ5i7EXgzKk">Class 23</a></li>
+        <li><a href="https://www.youtube.com/watch?v=ah4QXeU1_aw">Class 24 Part 1</a></li>
+        <li><a href="https://www.youtube.com/watch?v=RZTqPr257bE">Class 24 Part 2</a></li>
+        <li><a href="https://www.youtube.com/watch?v=B4C3glNWtVo">Class 25 Part 1</a></li>
+        <li><a href="https://www.youtube.com/watch?v=j641LW86q4I">Class 25 Part 2</a></li>
+        <li><a href="https://www.youtube.com/watch?v=EnFbsLA5gmk">Class 25 Part 3</a></li>
+        <li><a href="https://www.youtube.com/watch?v=l4PnNov_W9A">Class 26 Part 1</a></li>
+        <li><a href="https://www.youtube.com/watch?v=b9fqsdLvrIg">Class 26 Part 2</a></li>
+        <li><a href="https://www.youtube.com/watch?v=UJwh2td0ZEM">Class 27 Part 1</a></li>
+        <li><a href="https://www.youtube.com/watch?v=RNk9Sn1BE0A">Class 27 Part 2</a></li>
+        <li><a href="https://www.youtube.com/watch?v=yq4ZHFsCN7M">Class 27 Part 3</a></li>
+    </ul>
+
+        <div class="video-container" id="video-container"></div>
+    </div>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                const videoUrl = this.getAttribute('href');
+                embedVideo(videoUrl);
+            });
+        });
+
+        function embedVideo(url) {
+            const videoId = url.split('v=')[1];
+            const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            const iframe = `<iframe width="560" height="315" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            document.getElementById('video-container').innerHTML = iframe;
+        }
+    </script>
+</body>
+</html>
