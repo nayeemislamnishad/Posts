@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            display: none; /* Hide header */
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        li a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #007bff;
+            transition: background-color 0.3s ease;
+        }
+        li a:hover {
+            background-color: #0056b3;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            margin-top: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=MlcppKfCdFw">Class 1</a></li>
+            <li><a href="https://www.youtube.com/watch?v=yp-lcFxq9Rs">Class 2</a></li>
+            <li><a href="https://www.youtube.com/watch?v=2m3_lLUDhh8">Class 3</a></li>
+            <li><a href="https://www.youtube.com/watch?v=sPp5Q1ShbE8">Class 4</a></li>
+            
+            <!-- Add more links for other classes -->
+        </ul>
+    </nav>
+
+    <div class="video-container">
+        <iframe id="video" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                const videoUrl = this.getAttribute('href');
+                embedVideo(videoUrl);
+            });
+        });
+
+        function embedVideo(url) {
+            const videoId = url.split('v=')[1];
+            const embedUrl = `https://www.youtube.com/embed/${videoId}?modestbranding=1&showinfo=0`;
+            document.getElementById('video').src = embedUrl;
+        }
+    </script>
+</body>
+</html>
 
